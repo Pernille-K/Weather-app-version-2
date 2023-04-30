@@ -1,0 +1,137 @@
+body {
+  font-family: "Comfortaa", cursive;
+}
+
+h1 {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-style: bold;
+  text-align: center;
+  padding: 15px;
+  font-size: 40px;
+}
+
+h2 {
+  padding: 12px;
+  font-size: 20px;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+input {
+  text-align: center;
+}
+
+button {
+  border: none;
+  background: none;
+  text-align: center;
+}
+
+.degrees-buttons button {
+  text-align: center;
+}
+
+.cities {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  padding-bottom: 15px;
+  font-size: 12px;
+}
+
+.cities span {
+  display: table-cell;
+  text-align: center;
+  padding-bottom: 32px;
+}
+
+.form-container-mine {
+  justify-content: space-between;
+  text-align: center;
+}
+
+.container-mine {
+  padding: 30px;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  max-width: 750px;
+}
+
+.current-button {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.searchBar {
+  max-width: 250px;
+  display: fit-content;
+  margin: 0 auto;
+}
+
+.mb-3 {
+  text-align: center;
+}
+
+.cloud-icon {
+  font-size: 35px;
+}
+
+.center {
+  text-align: center;
+  width: 100%;
+}
+
+.col-mine {
+  text-align: center;
+  font-size: 15px;
+}
+
+.small-icon {
+  font-size: 36px;
+  margin-top: 12px;
+}
+
+.col-color {
+  color: #a9a9a9;
+}
+
+.days {
+  padding-top: 32px;
+}
+
+.title {
+  padding-top: 32px;
+}
+
+.card-text {
+  padding-top: 10px;
+}
+
+.cloud-icon {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.today-degrees {
+  text-align: center;
+}
+
+.weather-details-today {
+  font-size: 12px;
+  align-self: center;
+  text-align: center;
+}
+
+.code-link {
+  font-size: 12px;
+  text-align: center;
+}
