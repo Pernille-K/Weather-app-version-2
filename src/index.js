@@ -50,13 +50,13 @@ function changeToCelsius() {
   let todayDegreesDayCelsius = Math.round(
     ((madeUpDegreesFahrenheitDay - 32) * 5) / 9
   );
-  todayDegreesDay.innerHTML = `${todayDegreesDayCelsius} &deg; C`;
+  todayDegreesDay.innerHTML = `${todayDegreesDayCelsius}&deg;C`;
 
   let todayDegreesNight = document.querySelector(".today-degrees-night");
   let todayDegreesNightCelsius = Math.round(
     ((madeUpDegreesFahrenheitNight - 32) * 5) / 9
   );
-  todayDegreesNight.innerHTML = `${todayDegreesNightCelsius} &deg; C`;
+  todayDegreesNight.innerHTML = `${todayDegreesNightCelsius}&deg;C`;
 
   let degreesDay = document.querySelectorAll(".degrees-day");
   for (let i = 0; i < degreesDay.length; i++) {
@@ -69,7 +69,7 @@ function changeToCelsius() {
   }
 
   let temperatureSign = document.querySelectorAll(".temperature-sign");
-  temperatureSign.forEach((sign) => (sign.innerHTML = " C"));
+  temperatureSign.forEach((sign) => (sign.innerHTML = "C"));
 }
 
 function changeToFahrenheit() {
@@ -79,13 +79,13 @@ function changeToFahrenheit() {
   let todayDegreesDayFahrenheit = Math.round(
     (madeUpDegreesCelsiusDay * 9) / 5 + 32
   );
-  todayDegreesDay.innerHTML = `${todayDegreesDayFahrenheit} &deg; F`;
+  todayDegreesDay.innerHTML = `${todayDegreesDayFahrenheit}&deg;F`;
 
   let todayDegreesNight = document.querySelector(".today-degrees-night");
   let todayDegreesNightFahrenheit = Math.round(
     (madeUpDegreesCelsiusNight * 9) / 5 + 32
   );
-  todayDegreesNight.innerHTML = `${todayDegreesNightFahrenheit} &deg; F`;
+  todayDegreesNight.innerHTML = `${todayDegreesNightFahrenheit}&deg;F`;
 
   let degreesDay = document.querySelectorAll(".degrees-day");
   for (let i = 0; i < degreesDay.length; i++) {
@@ -97,7 +97,7 @@ function changeToFahrenheit() {
     degreesNight[i].innerHTML = "30";
   }
   let temperatureSign = document.querySelectorAll(".temperature-sign");
-  temperatureSign.forEach((sign) => (sign.innerHTML = " F"));
+  temperatureSign.forEach((sign) => (sign.innerHTML = "F"));
 }
 
 let celsiusButton = document.querySelector(".celsius-button");
@@ -108,20 +108,20 @@ fahrenheitButton.addEventListener("click", changeToFahrenheit);
 
 function changeCurrentCity(event) {
   event.preventDefault();
-  let currentCityH1 = document.querySelector(".currentCityH1");
+  let currentCityH1 = document.querySelector(".current-city-h1");
 
   currentCityH1.innerHTML = `${searchInput.value}`;
 }
 
-let searchBarForm = document.querySelector(".searchBar");
-let searchInput = document.querySelector("#searchInput");
+let searchBarForm = document.querySelector(".search-bar");
+let searchInput = document.querySelector("#search-input");
 
 searchBarForm.addEventListener("submit", changeCurrentCity);
 
 function displayTemp(response) {
   let temperatureDay = Math.round(response.data.main.temp);
   let todayDegreesDay = document.querySelector(".today-degrees-day");
-  todayDegreesDay.innerHTML = `${temperatureDay} &degC`;
+  todayDegreesDay.innerHTML = `${temperatureDay}&degC`;
 }
 
 function getAxios() {

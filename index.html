@@ -23,60 +23,87 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div class="container container-mine" style="margin-top: 16px">
-      <div class="form-container-mine row">
-        <span class="degrees-buttons col-4">
-          <button class="celsius-button">C&deg;</button>
-          /
-          <button class="fahrenheit-button">F &deg;</button>
+    <div class="container container-mine">
+      <div class="row g-0">
+        <span class="col-8">
+          <form class="search-bar">
+            <input
+              type="text"
+              placeholder="Search here..."
+              class="form-control"
+              id="search-input"
+            />
+          </form>
         </span>
-        <span class="col-4">
-          <button class="current-button center">Current Location</button>
+        <span class="col-1">
+          <button class="search-button">
+            <i class="fa-solid fa-magnifying-glass" style="color: #000000"></i>
+          </button>
         </span>
-        <span class="col-4">
-          <p class="date-and-time">
-            <span class="currentDay">Day </span>
-            <span class="currentDate">Date </span>
-            <br />
-            <span class="currentTime">Time</span>
-          </p>
+        <span class="col-1">
+          <button class="current-button">
+            <i
+              class="fa-solid fa-location-crosshairs"
+              style="color: #000000"
+            ></i>
+          </button>
+        </span>
+        <span class="degrees-buttons col-2">
+          <button class="celsius-button">&deg;C</button>
+          |
+          <button class="fahrenheit-button">&deg;F</button>
         </span>
       </div>
+
       <br />
-      <form class="center mb-3 searchBar">
-        <input
-          type="text"
-          placeholder="Search here..."
-          class="form-control"
-          id="searchInput"
-        />
-      </form>
+      <p class="date-and-time">
+        <span class="currentDay">Day </span>
+        <span class="currentDate">Date </span>
+        <span class="currentTime">Time</span>
+      </p>
+
+      <br />
       <div class="row title">
-        <h2 class="col-4">
-          <i class="fa-solid fa-cloud cloud-icon center"></i>
-          <div class="today-degrees">
-            <span class="today-degrees-day">
-              5 <span class="temperature-sign"> &deg;C</span></span
-            >
-            /
-            <em class="col-color today-degrees-night"
-              >3<span class="temperature-sign"> &deg;C</span></em
-            >
-          </div>
-        </h2>
+        <span class="col-8">
+          <h1 class="current-city-h1">Oslo</h1>
+        </span>
         <span class="col-4">
-          <h1 class="currentCityH1">Oslo</h1>
+          <i class="fa-solid fa-cloud cloud-icon"></i>
         </span>
-        <span class="col-4 weather-details-today"
-          >Precipitation: 15%<br />Humidity: 90%<br />Wind: 5 m/s
+      </div>
+      <div class="row">
+        <span class="col-8 weather-details-today">
+          <div class="row">
+            <ul class="col-4">
+              <li>Precipitation</li>
+              <li>15%</li>
+            </ul>
+            <ul class="col-4">
+              <li>Humidity</li>
+              <li>40%</li>
+            </ul>
+            <ul class="col-4">
+              <li>Wind</li>
+              <li>5 m/s</li>
+            </ul>
+          </div>
         </span>
+
+        <div class="col-4 today-degrees">
+          <strong class="today-degrees-day">
+            5 <span class="temperature-sign"> &deg;C</span>
+          </strong>
+          <em class="col-color today-degrees-night">
+            <strong></strong>3<span class="temperature-sign"> &deg;C</span></em
+          >
+        </div>
       </div>
 
       <div class="row d-flex justify-content-center no-gutters days">
         <div class="col col-mine">
-          <div class="card border-0 mx-auto">
+          <div class="card mx-auto card-mine">
             <div class="card-body">
-              <h3 id="day2">Monday</h3>
+              <h3 id="day2"></h3>
               <i class="fa-solid fa-cloud-sun small-icon"></i>
               <p class="card-text">
                 <span class="degrees-day">7</span>&deg;<span
@@ -84,7 +111,7 @@
                 >
                   C</span
                 >
-                /<em class="col-color"
+                <em class="col-color"
                   ><span class="degrees-night">-1</span>&deg;<span
                     class="temperature-sign"
                   >
@@ -97,9 +124,9 @@
         </div>
 
         <div class="col col-mine">
-          <div class="card border-0 mx-auto">
+          <div class="card mx-auto card-mine">
             <div class="card-body">
-              <h3 id="day3">Tuesday</h3>
+              <h3 id="day3"></h3>
               <i class="fa-solid fa-cloud-showers-heavy small-icon"></i>
               <p class="card-text">
                 <span class="degrees-day">7</span>&deg;<span
@@ -107,7 +134,7 @@
                 >
                   C</span
                 >
-                /<em class="col-color">
+                <em class="col-color">
                   <span class="degrees-night">-1</span>&deg;<span
                     class="temperature-sign"
                   >
@@ -120,9 +147,9 @@
         </div>
 
         <div class="col col-mine">
-          <div class="card border-0 mx-auto">
+          <div class="card mx-auto card-mine">
             <div class="card-body">
-              <h3 id="day4">Wednesday</h3>
+              <h3 id="day4"></h3>
               <i class="fa-solid fa-cloud-showers-heavy small-icon"></i>
               <p class="card-text">
                 <span class="degrees-day">7</span>&deg;<span
@@ -130,7 +157,7 @@
                 >
                   C</span
                 >
-                /<em class="col-color"
+                <em class="col-color"
                   ><span class="degrees-night">-1</span>&deg;<span
                     class="temperature-sign"
                   >
@@ -143,9 +170,9 @@
         </div>
 
         <div class="col col-mine">
-          <div class="card border-0 mx-auto">
+          <div class="card mx-auto card-mine">
             <div class="card-body">
-              <h3 id="day5">Thursday</h3>
+              <h3 id="day5"></h3>
               <i class="fa-solid fa-cloud-rain small-icon"></i>
               <p class="card-text">
                 <span class="degrees-day">7</span>&deg;<span
@@ -153,7 +180,7 @@
                 >
                   C</span
                 >
-                /<em class="col-color">
+                <em class="col-color">
                   <span class="degrees-night">-1</span>&deg;<span
                     class="temperature-sign"
                   >
@@ -166,9 +193,9 @@
         </div>
 
         <div class="col col-mine">
-          <div class="card border-0 mx-auto">
+          <div class="card mx-auto card-mine">
             <div class="card-body">
-              <h3 id="day6">Friday</h3>
+              <h3 id="day6"></h3>
               <i class="fa-solid fa-cloud-showers-heavy small-icon"></i>
               <p class="card-text">
                 <span class="degrees-day">7</span>&deg;<span
@@ -176,7 +203,7 @@
                 >
                   C</span
                 >
-                /<em class="col-color"
+                <em class="col-color"
                   ><span class="degrees-night">-1</span>&deg;<span
                     class="temperature-sign"
                   >
@@ -188,15 +215,15 @@
           </div>
         </div>
       </div>
+      <p class="source-code-link">
+        <a
+          href="https://github.com/Pernille-K/SheCodes-weather-app"
+          target="_blank"
+          >Open-source code</a
+        >
+        by Pernille Klarpås
+      </p>
     </div>
-    <p class="code-link center">
-      <a
-        href="https://github.com/Pernille-K/SheCodes-weather-app"
-        target="_blank"
-        >Open-source code</a
-      >
-      by Pernille Klarpås
-    </p>
 
     <script src="src/index.js"></script>
     <script
