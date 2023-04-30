@@ -1,21 +1,16 @@
 body {
-  font-family: "Comfortaa", cursive;
+  font-family: "Ysabeau", sans-serif;
 }
 
 h1 {
-  font-weight: 400;
   text-transform: uppercase;
+  font-weight: 600;
   font-style: bold;
-  font-size: 40px;
-}
-
-h2 {
-  padding: 12px;
-  font-size: 20px;
+  font-size: 45px;
 }
 
 h3 {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 button {
@@ -32,27 +27,27 @@ li {
   padding-bottom: 30px;
   display: block;
   margin: 0 auto;
-  max-width: 650px;
-  margin-top: 16px;
-  /* background: #fffee3;
-  border: solid #fffee3;
-  border-radius: 5px; */
+  max-width: 620px;
+  margin-top: 15px;
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/646/original/sunrays.png?1682890434");
+  background-color: #f9f4bb;
+  background-size: cover;
 }
 
 .degrees-buttons {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .current-button {
   display: block;
   margin: 0 auto;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .search-button {
   display: block;
   margin: 0 auto;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .today-degrees {
@@ -60,7 +55,7 @@ li {
 }
 
 .weather-details-today {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .cloud-icon {
@@ -69,12 +64,12 @@ li {
 
 .col-mine {
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .small-icon {
   font-size: 36px;
-  margin-top: 12px;
+  margin-top: 15px;
 }
 
 .col-color {
@@ -89,6 +84,10 @@ li {
   padding-top: 32px;
 }
 
+.card-mine {
+  background: transparent;
+}
+
 .card-text {
   padding-top: 10px;
 }
@@ -101,6 +100,6 @@ li {
 }
 
 .source-code-link {
-  font-size: 12px;
+  font-size: 15px;
   padding: 10px;
 }
