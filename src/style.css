@@ -54,14 +54,21 @@ li {
   background-color: #eff1f2;
 }
 
-.rainy-background {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/757/original/rainy2.png?1682929489");
+/* .rainy-background {
+  background-image: linear-gradient(
+      rgba(224, 242, 252, 0.5),
+      rgba(224, 242, 252, 0.5)
+    ),
+    url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/764/original/rainy3.png?1682935050");
   background-size: cover;
-  background-position-x: center;
-  background-color: #f7f7f7;
-}
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+} */
 
-.degrees-buttons {
+.search-button {
+  display: block;
+  margin: 0 auto;
   font-size: 18px;
 }
 
@@ -71,23 +78,29 @@ li {
   font-size: 18px;
 }
 
-.search-button {
+.degrees-buttons {
+  font-size: 18px;
+}
+
+.cloud {
+  width: auto;
+  max-height: 90px;
   display: block;
   margin: 0 auto;
-  font-size: 18px;
 }
 
 .today-degrees {
   text-align: center;
+  font-size: 25px;
 }
 
 .weather-details-today {
   font-size: 15px;
 }
 
-.cloud-icon {
+/* .cloud-icon {
   font-size: 35px;
-}
+} */
 
 .col-mine {
   text-align: center;

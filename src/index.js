@@ -129,21 +129,21 @@ function changeBackground(response) {
   console.log(response.data.weather[0].main);
 
   if (weatherDescription == "Snow") {
-    backgroundContainer.classList.add("snowy-background");
+    backgroundContainer.style.backgroundColor = "#fffafa";
   } else if (weatherDescription == "Mist") {
-    backgroundContainer.classList.add("misty-background");
+    backgroundContainer.style.backgroundColor = "#B4C1C9";
   } else if (weatherDescription == "Sun") {
-    backgroundContainer.classList.add("sunny-background");
+    backgroundContainer.style.backgroundColor = "#fce5a4";
   } else if (weatherDescription == "Clouds") {
-    backgroundContainer.classList.add("cloudy-background");
+    backgroundContainer.style.backgroundColor = "#e4ecf0";
   } else if (weatherDescription == "Rain") {
-    backgroundContainer.classList.add("rainy-background");
+    backgroundContainer.style.backgroundColor = "#e0f2fc";
   }
 }
 
 let searchInput = document.querySelector("#search-input");
 
-function getAxios() {
+function getAxiosOpenWeather() {
   let apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
   let city = `${searchInput.value}`;
   let apiUrlOpenWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -151,7 +151,7 @@ function getAxios() {
   axios.get(apiUrlOpenWeather).then(changeBackground);
 }
 
-searchBarForm.addEventListener("submit", getAxios);
+searchBarForm.addEventListener("submit", getAxiosOpenWeather);
 
 function displayLocation(response) {
   console.log(response.data);
