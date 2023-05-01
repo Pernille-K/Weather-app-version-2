@@ -106,29 +106,29 @@ let fahrenheitButton = document.querySelector(".fahrenheit-button");
 celsiusButton.addEventListener("click", changeToCelsius);
 fahrenheitButton.addEventListener("click", changeToFahrenheit);
 
-function changeCurrentCity(event) {
+function changeCity(event) {
   event.preventDefault();
-  let currentCityH1 = document.querySelector(".current-city-h1");
-
-  currentCityH1.innerHTML = `${searchInput.value}`;
 }
 
 let searchBarForm = document.querySelector(".search-bar");
 let searchInput = document.querySelector("#search-input");
 
-searchBarForm.addEventListener("submit", changeCurrentCity);
+searchBarForm.addEventListener("submit", changeCity);
 
-function displayTemp(response) {
+function displayTempAndCity(response) {
   let temperatureDay = Math.round(response.data.main.temp);
   let todayDegreesDay = document.querySelector(".today-degrees-day");
   todayDegreesDay.innerHTML = `${temperatureDay}&degC`;
+
+  let city = document.querySelector(".city");
+  city.innerHTML = `${response.data.name}`;
 }
 
 function getAxios() {
   let apiKey = "7784a4cd4aa2e0c25ead7bd96d585b8a";
   let city = `${searchInput.value}`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayTemp);
+  axios.get(apiUrl).then(displayTempAndCity);
 }
 
 searchBarForm.addEventListener("submit", getAxios);
@@ -157,3 +157,10 @@ function currentLocation() {
 
 let currentButton = document.querySelector(".current-button");
 currentButton.addEventListener("click", currentLocation);
+
+let backgroundContainer = document.querySelector("#background-container");
+
+// function changeToCloudyBackground {
+//    let sunnyBackground = document.querySelector(".sunny-background");
+
+// }
