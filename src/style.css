@@ -29,9 +29,13 @@ li {
   margin: 0 auto;
   max-width: 620px;
   margin-top: 15px;
+}
+.sunny-background {
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/646/original/sunrays.png?1682890434");
-  background-color: #f9f4bb;
   background-size: cover;
+  background-position-x: center;
+  background-color: #fefedf;
+  background-blend-mode: screen;
 }
 
 .degrees-buttons {
@@ -102,4 +106,5 @@ li {
 .source-code-link {
   font-size: 15px;
   padding: 10px;
+  text-align: center;
 }
