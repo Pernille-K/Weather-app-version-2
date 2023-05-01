@@ -24,193 +24,200 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div class="container container-mine" id="background-container">
-      <div class="row g-0">
-        <span class="col-8">
-          <form class="search-bar">
-            <input
-              type="text"
-              placeholder="Search here..."
-              class="form-control"
-              id="search-input"
-            />
-          </form>
-        </span>
-        <span class="col-1">
-          <button class="search-button">
-            <i class="fa-solid fa-magnifying-glass" style="color: #000000"></i>
-          </button>
-        </span>
-        <span class="col-1">
-          <button class="current-button">
-            <i
-              class="fa-solid fa-location-crosshairs"
-              style="color: #000000"
-            ></i>
-          </button>
-        </span>
-        <span class="degrees-buttons col-2">
-          <button class="celsius-button">&deg;C</button>
-          |
-          <button class="fahrenheit-button">&deg;F</button>
-        </span>
-      </div>
-
-      <p class="date-and-time">
-        <span class="currentDay">Day </span>
-        <span class="currentDate">Date </span>
-        <span class="currentTime">Time</span>
-      </p>
-
-      <br />
-      <div class="row title">
-        <span class="col-8">
-          <h1 class="city">Oslo</h1>
-        </span>
-        <span class="col-4">
-          <i class="fa-solid fa-cloud cloud-icon"></i>
-        </span>
-      </div>
-      <div class="row">
-        <span class="col-8 weather-details-today">
-          <div class="row">
-            <ul class="col-4">
-              <li>Precipitation</li>
-              <li>15%</li>
-            </ul>
-            <ul class="col-4">
-              <li>Humidity</li>
-              <li>40%</li>
-            </ul>
-            <ul class="col-4">
-              <li>Wind</li>
-              <li>5 m/s</li>
-            </ul>
-          </div>
-        </span>
-
-        <div class="col-4 today-degrees">
-          <strong class="today-degrees-day">
-            5 <span class="temperature-sign"> &deg;C</span>
-          </strong>
-          <em class="col-color today-degrees-night">
-            <strong></strong>3<span class="temperature-sign"> &deg;C</span></em
-          >
+    <div class="container container-mine">
+      <div id="background-container">
+        <div class="row g-0">
+          <span class="col-8">
+            <form class="search-bar">
+              <input
+                type="text"
+                placeholder="Search here..."
+                class="form-control"
+                id="search-input"
+              />
+            </form>
+          </span>
+          <span class="col-1">
+            <button class="search-button">
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="color: #000000"
+              ></i>
+            </button>
+          </span>
+          <span class="col-1">
+            <button class="current-button">
+              <i
+                class="fa-solid fa-location-crosshairs"
+                style="color: #000000"
+              ></i>
+            </button>
+          </span>
+          <span class="degrees-buttons col-2">
+            <button class="celsius-button">&deg;C</button>
+            |
+            <button class="fahrenheit-button">&deg;F</button>
+          </span>
         </div>
-      </div>
 
-      <div class="row d-flex justify-content-center no-gutters days">
-        <div class="col col-mine">
-          <div class="card mx-auto card-mine">
-            <div class="card-body">
-              <h3 id="day2"></h3>
-              <i class="fa-solid fa-cloud-sun small-icon"></i>
-              <p class="card-text">
-                <span class="degrees-day">7</span>&deg;<span
-                  class="temperature-sign"
-                >
-                  C</span
-                >
-                <em class="col-color"
-                  ><span class="degrees-night">1</span>&deg;<span
+        <p class="date-and-time">
+          <span class="currentDay">Day </span>
+          <span class="currentDate">Date </span>
+          <span class="currentTime">Time</span>
+        </p>
+
+        <br />
+        <div class="row title">
+          <span class="col-8">
+            <h1 class="city">Oslo</h1>
+          </span>
+          <span class="col-4">
+            <i class="fa-solid fa-cloud cloud-icon"></i>
+          </span>
+        </div>
+        <div class="row">
+          <span class="col-8 weather-details-today">
+            <div class="row">
+              <ul class="col-4">
+                <li>Precipitation</li>
+                <li>15%</li>
+              </ul>
+              <ul class="col-4">
+                <li>Humidity</li>
+                <li>40%</li>
+              </ul>
+              <ul class="col-4">
+                <li>Wind</li>
+                <li>5 m/s</li>
+              </ul>
+            </div>
+          </span>
+
+          <div class="col-4 today-degrees">
+            <strong class="today-degrees-day">
+              5 <span class="temperature-sign"> &deg;C</span>
+            </strong>
+            <em class="col-color today-degrees-night">
+              <strong></strong>3<span class="temperature-sign">
+                &deg;C</span
+              ></em
+            >
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center no-gutters days">
+          <div class="col col-mine">
+            <div class="card mx-auto card-mine">
+              <div class="card-body">
+                <h3 id="day2"></h3>
+                <i class="fa-solid fa-cloud-sun small-icon"></i>
+                <p class="card-text">
+                  <span class="degrees-day">7</span>&deg;<span
                     class="temperature-sign"
                   >
                     C</span
-                  ></em
-                >
-              </p>
+                  >
+                  <em class="col-color"
+                    ><span class="degrees-night">1</span>&deg;<span
+                      class="temperature-sign"
+                    >
+                      C</span
+                    ></em
+                  >
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col col-mine">
-          <div class="card mx-auto card-mine">
-            <div class="card-body">
-              <h3 id="day3"></h3>
-              <i class="fa-solid fa-cloud-showers-heavy small-icon"></i>
-              <p class="card-text">
-                <span class="degrees-day">7</span>&deg;<span
-                  class="temperature-sign"
-                >
-                  C</span
-                >
-                <em class="col-color">
-                  <span class="degrees-night">1</span>&deg;<span
+          <div class="col col-mine">
+            <div class="card mx-auto card-mine">
+              <div class="card-body">
+                <h3 id="day3"></h3>
+                <i class="fa-solid fa-cloud-showers-heavy small-icon"></i>
+                <p class="card-text">
+                  <span class="degrees-day">7</span>&deg;<span
                     class="temperature-sign"
                   >
                     C</span
                   >
-                </em>
-              </p>
+                  <em class="col-color">
+                    <span class="degrees-night">1</span>&deg;<span
+                      class="temperature-sign"
+                    >
+                      C</span
+                    >
+                  </em>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col col-mine">
-          <div class="card mx-auto card-mine">
-            <div class="card-body">
-              <h3 id="day4"></h3>
-              <i class="fa-solid fa-cloud-showers-heavy small-icon"></i>
-              <p class="card-text">
-                <span class="degrees-day">7</span>&deg;<span
-                  class="temperature-sign"
-                >
-                  C</span
-                >
-                <em class="col-color"
-                  ><span class="degrees-night">1</span>&deg;<span
+          <div class="col col-mine">
+            <div class="card mx-auto card-mine">
+              <div class="card-body">
+                <h3 id="day4"></h3>
+                <i class="fa-solid fa-cloud-showers-heavy small-icon"></i>
+                <p class="card-text">
+                  <span class="degrees-day">7</span>&deg;<span
                     class="temperature-sign"
                   >
                     C</span
-                  ></em
-                >
-              </p>
+                  >
+                  <em class="col-color"
+                    ><span class="degrees-night">1</span>&deg;<span
+                      class="temperature-sign"
+                    >
+                      C</span
+                    ></em
+                  >
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col col-mine">
-          <div class="card mx-auto card-mine">
-            <div class="card-body">
-              <h3 id="day5"></h3>
-              <i class="fa-solid fa-cloud-rain small-icon"></i>
-              <p class="card-text">
-                <span class="degrees-day">7</span>&deg;<span
-                  class="temperature-sign"
-                >
-                  C</span
-                >
-                <em class="col-color">
-                  <span class="degrees-night">1</span>&deg;<span
+          <div class="col col-mine">
+            <div class="card mx-auto card-mine">
+              <div class="card-body">
+                <h3 id="day5"></h3>
+                <i class="fa-solid fa-cloud-rain small-icon"></i>
+                <p class="card-text">
+                  <span class="degrees-day">7</span>&deg;<span
                     class="temperature-sign"
                   >
                     C</span
-                  ></em
-                >
-              </p>
+                  >
+                  <em class="col-color">
+                    <span class="degrees-night">1</span>&deg;<span
+                      class="temperature-sign"
+                    >
+                      C</span
+                    ></em
+                  >
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col col-mine">
-          <div class="card mx-auto card-mine">
-            <div class="card-body">
-              <h3 id="day6"></h3>
-              <i class="fa-solid fa-cloud-showers-heavy small-icon"></i>
-              <p class="card-text">
-                <span class="degrees-day">7</span>&deg;<span
-                  class="temperature-sign"
-                >
-                  C</span
-                >
-                <em class="col-color"
-                  ><span class="degrees-night">1</span>&deg;<span
+          <div class="col col-mine">
+            <div class="card mx-auto card-mine">
+              <div class="card-body">
+                <h3 id="day6"></h3>
+                <i class="fa-solid fa-cloud-showers-heavy small-icon"></i>
+                <p class="card-text">
+                  <span class="degrees-day">7</span>&deg;<span
                     class="temperature-sign"
                   >
                     C</span
-                  ></em
-                >
-              </p>
+                  >
+                  <em class="col-color"
+                    ><span class="degrees-night">1</span>&deg;<span
+                      class="temperature-sign"
+                    >
+                      C</span
+                    ></em
+                  >
+                </p>
+              </div>
             </div>
           </div>
         </div>

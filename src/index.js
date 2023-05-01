@@ -123,9 +123,8 @@ function displayTempAndCity(response) {
   city.innerHTML = `${response.data.name}`;
 }
 
-let backgroundContainer = document.querySelector("#background-container");
-
 function changeBackground(response) {
+  let backgroundContainer = document.querySelector("#background-container");
   let weatherDescription = response.data.weather[0].main;
   console.log(response.data.weather[0].main);
 
