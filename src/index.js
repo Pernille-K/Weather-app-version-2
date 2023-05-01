@@ -128,14 +128,26 @@ function changeBackground(response) {
   let weatherDescription = response.data.weather[0].main;
   console.log(response.data.weather[0].main);
 
+  let atmosphereDescriptors = [
+    "Mist",
+    "Smoke",
+    "Haze",
+    "Dust",
+    "Fog",
+    "Sand",
+    "Ash",
+    "Squall",
+    "Tornado",
+  ];
+
   if (weatherDescription == "Snow") {
     backgroundContainer.style.backgroundColor = "#fffafa";
-  } else if (weatherDescription == "Mist") {
+  } else if (atmosphereDescriptors.includes(weatherDescription)) {
     backgroundContainer.style.backgroundColor = "#B4C1C9";
   } else if (weatherDescription == "Clear") {
-    backgroundContainer.style.backgroundColor = "#fcf5b3";
+    backgroundContainer.style.backgroundColor = "#fff8bc";
   } else if (weatherDescription == "Clouds") {
-    backgroundContainer.style.backgroundColor = "#e4ecf0";
+    backgroundContainer.style.backgroundColor = "#ededed";
   } else if (weatherDescription == "Rain") {
     backgroundContainer.style.backgroundColor = "#e0f2fc";
   }
