@@ -29,6 +29,11 @@ li {
   margin: 0 auto;
   max-width: 620px;
   margin-top: 15px;
+  border-radius: 10px;
+}
+
+.snowy-background {
+  background-color: blue;
 }
 .sunny-background {
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/646/original/sunrays.png?1682890434");
@@ -36,6 +41,24 @@ li {
   background-position-x: center;
   background-color: #fefedf;
   background-blend-mode: screen;
+}
+
+.cloudy-background {
+  background-color: grey;
+}
+
+.misty-background {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/751/original/mist2.png?1682924576");
+  background-size: cover;
+  background-position-x: center;
+  background-color: #eff1f2;
+}
+
+.rainy-background {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/757/original/rainy2.png?1682929489");
+  background-size: cover;
+  background-position-x: center;
+  background-color: #f7f7f7;
 }
 
 .degrees-buttons {

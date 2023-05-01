@@ -106,16 +106,15 @@ let fahrenheitButton = document.querySelector(".fahrenheit-button");
 celsiusButton.addEventListener("click", changeToCelsius);
 fahrenheitButton.addEventListener("click", changeToFahrenheit);
 
-function changeCity(event) {
+function preventDefault(event) {
   event.preventDefault();
 }
 
 let searchBarForm = document.querySelector(".search-bar");
-let searchInput = document.querySelector("#search-input");
-
-searchBarForm.addEventListener("submit", changeCity);
+searchBarForm.addEventListener("submit", preventDefault);
 
 function displayTempAndCity(response) {
+  console.log(response.data);
   let temperatureDay = Math.round(response.data.main.temp);
   let todayDegreesDay = document.querySelector(".today-degrees-day");
   todayDegreesDay.innerHTML = `${temperatureDay}&degC`;
@@ -124,11 +123,33 @@ function displayTempAndCity(response) {
   city.innerHTML = `${response.data.name}`;
 }
 
+let backgroundContainer = document.querySelector("#background-container");
+
+function changeBackground(response) {
+  let weatherDescription = response.data.weather[0].main;
+  console.log(response.data.weather[0].main);
+
+  if (weatherDescription == "Snow") {
+    backgroundContainer.classList.add("snowy-background");
+  } else if (weatherDescription == "Mist") {
+    backgroundContainer.classList.add("misty-background");
+  } else if (weatherDescription == "Sun") {
+    backgroundContainer.classList.add("sunny-background");
+  } else if (weatherDescription == "Clouds") {
+    backgroundContainer.classList.add("cloudy-background");
+  } else if (weatherDescription == "Rain") {
+    backgroundContainer.classList.add("rainy-background");
+  }
+}
+
+let searchInput = document.querySelector("#search-input");
+
 function getAxios() {
-  let apiKey = "7784a4cd4aa2e0c25ead7bd96d585b8a";
+  let apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
   let city = `${searchInput.value}`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayTempAndCity);
+  let apiUrlOpenWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlOpenWeather).then(displayTempAndCity);
+  axios.get(apiUrlOpenWeather).then(changeBackground);
 }
 
 searchBarForm.addEventListener("submit", getAxios);
@@ -139,28 +160,22 @@ function displayLocation(response) {
   h1.innerHTML = `${response.data.name}`;
   let temperature = Math.round(response.data.main.temp);
   let todayDegreesDay = document.querySelector(".today-degrees-day");
-  todayDegreesDay.innerHTML = `${temperature} &degC`;
+  todayDegreesDay.innerHTML = `${temperature}&degC`;
 }
 
-function getPositionAxios(response) {
+function getAxiosPosition(response) {
   console.log(response.data);
   let lat = response.coords.latitude;
   let lon = response.coords.longitude;
-  let apiKey = `2bd326a60dc89a53287e446e819664df`;
+  let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
   let apiUrlWeatherHere = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrlWeatherHere).then(displayLocation);
+  axios.get(apiUrlWeatherHere).then(changeBackground);
 }
 
 function currentLocation() {
-  navigator.geolocation.getCurrentPosition(getPositionAxios);
+  navigator.geolocation.getCurrentPosition(getAxiosPosition);
 }
 
 let currentButton = document.querySelector(".current-button");
 currentButton.addEventListener("click", currentLocation);
-
-let backgroundContainer = document.querySelector("#background-container");
-
-// function changeToCloudyBackground {
-//    let sunnyBackground = document.querySelector(".sunny-background");
-
-// }
