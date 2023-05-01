@@ -132,14 +132,12 @@ function changeBackground(response) {
     backgroundContainer.style.backgroundColor = "#fffafa";
   } else if (weatherDescription == "Mist") {
     backgroundContainer.style.backgroundColor = "#B4C1C9";
-  } else if (weatherDescription == "Sun") {
-    backgroundContainer.style.backgroundColor = "#fffdcc";
+  } else if (weatherDescription == "Clear") {
+    backgroundContainer.style.backgroundColor = "#fcf5b3";
   } else if (weatherDescription == "Clouds") {
     backgroundContainer.style.backgroundColor = "#e4ecf0";
   } else if (weatherDescription == "Rain") {
     backgroundContainer.style.backgroundColor = "#e0f2fc";
-  } else if (weatherDescription == "Clear") {
-    backgroundContainer.style.backgroundColor = "#d2e8f4";
   }
 }
 

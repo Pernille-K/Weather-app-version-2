@@ -1,3 +1,5 @@
+/* "#d2e8f4"; */
+
 body {
   font-family: "Ysabeau", sans-serif;
 }
@@ -60,7 +62,7 @@ li {
   margin: 0 auto;
 }
 
-.small-icon {
+.small-picture {
   object-fit: content;
   width: auto;
   max-height: 50px;
