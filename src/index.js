@@ -133,7 +133,7 @@ function changeBackground(response) {
   } else if (weatherDescription == "Mist") {
     backgroundContainer.style.backgroundColor = "#B4C1C9";
   } else if (weatherDescription == "Sun") {
-    backgroundContainer.style.backgroundColor = "#fce5a4";
+    backgroundContainer.style.backgroundColor = "#fffdcc";
   } else if (weatherDescription == "Clouds") {
     backgroundContainer.style.backgroundColor = "#e4ecf0";
   } else if (weatherDescription == "Rain") {

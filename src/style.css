@@ -23,13 +23,18 @@ li {
 }
 
 .container-mine {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: block;
   margin: 0 auto;
   max-width: 620px;
-  margin-top: 15px;
+  margin-top: 10px;
   border-radius: 10px;
+  border: thin 5px #e0f2fc;
+}
+
+#background-container {
+  background-color: #e0f2fc;
 }
 
 .search-button {
@@ -82,10 +87,6 @@ li {
   font-size: 18px;
 }
 
-.small-icon {
-  font-size: 36px;
-}
-
 .col-color {
   color: #a9a9a9;
 }
@@ -95,22 +96,16 @@ li {
 }
 
 .title {
-  padding-top: 32px;
+  padding-top: 20px;
 }
 
 .card-mine {
   background: transparent;
+  border: thin 5px #e0f2fc;
 }
 
 .card-text {
   padding-top: 10px;
-}
-
-.cloud-icon {
-  padding-bottom: 10px;
-  text-align: center;
-  margin: 0 auto;
-  display: block;
 }
 
 .source-code-link {
