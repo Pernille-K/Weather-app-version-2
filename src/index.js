@@ -121,10 +121,10 @@ function displayWeather(response) {
   city.innerHTML = `${response.data.name}`;
 }
 
-function changeBackground(response) {
+function changeBackgroundAndPictures(response) {
   let backgroundContainer = document.querySelector("#background-container");
   let weatherDescription = response.data.weather[0].main;
-  console.log(response.data.weather[0].main);
+  let mainPicture = document.querySelector("#current-weather-picture");
 
   let atmosphereDescriptors = [
     "Mist",
@@ -138,16 +138,42 @@ function changeBackground(response) {
     "Tornado",
   ];
 
-  if (weatherDescription == "Snow") {
-    backgroundContainer.style.backgroundColor = "#fffafa";
-  } else if (atmosphereDescriptors.includes(weatherDescription)) {
+  if (atmosphereDescriptors.includes(weatherDescription)) {
     backgroundContainer.style.backgroundColor = "#B4C1C9";
+    mainPicture.setAttribute(
+      "src",
+      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/866/original/cloudsadobegray.png?1682952198`
+    );
+  } else if (weatherDescription == "Snow") {
+    backgroundContainer.style.backgroundColor = "#fffafa";
+    mainPicture.setAttribute(
+      "src",
+      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/893/original/snow2.png?1682960045`
+    );
   } else if (weatherDescription == "Clear") {
     backgroundContainer.style.backgroundColor = "#fff8bc";
+    mainPicture.setAttribute(
+      "src",
+      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/836/original/sun.png?1682944300`
+    );
   } else if (weatherDescription == "Clouds") {
     backgroundContainer.style.backgroundColor = "#ededed";
+    mainPicture.setAttribute(
+      "src",
+      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/848/original/cloudsadobe2.png?1682946292`
+    );
   } else if (weatherDescription == "Rain") {
     backgroundContainer.style.backgroundColor = "#e0f2fc";
+    mainPicture.setAttribute(
+      "src",
+      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/764/original/rainy3.png?1682935050`
+    );
+  } else if (weatherDescription == "Thunderstorm") {
+    backgroundContainer.style.backgroundColor = "#d1fdff";
+    mainPicture.setAttribute(
+      "src",
+      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/849/original/thunder.png?1682946763`
+    );
   }
 }
 
@@ -158,8 +184,9 @@ function getAxiosOpenWeather() {
   let city = `${searchInput.value}`;
   let apiUrlOpenWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrlOpenWeather).then(displayWeather);
-  axios.get(apiUrlOpenWeather).then(changeBackground);
+  axios.get(apiUrlOpenWeather).then(changeBackgroundAndPictures);
   axios.get(apiUrlOpenWeather).then(updateDescription);
+  axios.get(apiUrlOpenWeather).then(changePictures);
 }
 
 searchBarForm.addEventListener("submit", getAxiosOpenWeather);
@@ -180,8 +207,9 @@ function getAxiosPosition(response) {
   let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
   let apiUrlWeatherHere = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrlWeatherHere).then(displayLocation);
-  axios.get(apiUrlWeatherHere).then(changeBackground);
+  axios.get(apiUrlWeatherHere).then(changeBackgroundAndPictures);
   axios.get(apiUrlWeatherHere).then(updateDescription);
+  axios.get(apiUrlWeatherHere).then(changePictures);
 }
 
 function currentLocation() {
