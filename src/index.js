@@ -138,6 +138,8 @@ function changeBackground(response) {
     backgroundContainer.style.backgroundColor = "#e4ecf0";
   } else if (weatherDescription == "Rain") {
     backgroundContainer.style.backgroundColor = "#e0f2fc";
+  } else if (weatherDescription == "Clear") {
+    backgroundContainer.style.backgroundColor = "#d2e8f4";
   }
 }
 
