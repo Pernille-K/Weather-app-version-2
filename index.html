@@ -57,15 +57,15 @@
       </div>
 
       <p class="date-and-time">
-        <span class="currentDay">Day </span>
-        <span class="currentDate">Date </span>
-        <span class="currentTime">Time</span>
+        <span class="currentDay"></span>
+        <span class="currentDate"></span>
+        <span class="currentTime"></span>
       </p>
 
       <br />
       <div class="row title">
         <span class="col-8">
-          <h1 class="city">Oslo</h1>
+          <h1 class="city"></h1>
         </span>
         <span class="col-4">
           <img
@@ -80,7 +80,7 @@
           <div class="row">
             <ul class="col-4">
               <li>Precipitation</li>
-              <li>15%</li>
+              <li id="precipitation-stats"></li>
             </ul>
             <ul class="col-4">
               <li>Humidity</li>
@@ -93,14 +93,12 @@
           </div>
         </span>
 
-        <div class="col-4 today-degrees">
-          <strong class="today-degrees-day">
-            5 <span class="temperature-sign">&deg;C</span>
+        <span class="col-4">
+          <h2 id="current-weather-description"></h2>
+          <strong class="current-degrees"
+            >5<span class="temperature-sign">&deg;C</span>
           </strong>
-          <em class="col-color today-degrees-night">
-            <strong></strong>3<span class="temperature-sign">&deg;C</span></em
-          >
-        </div>
+        </span>
       </div>
 
       <div class="row d-flex justify-content-center no-gutters days">

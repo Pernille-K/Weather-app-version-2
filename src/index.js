@@ -45,18 +45,11 @@ day6.innerHTML = days[(now.getDay() + 5) % 7];
 
 function changeToCelsius() {
   const madeUpDegreesFahrenheitDay = 41;
-  const madeUpDegreesFahrenheitNight = 37;
-  let todayDegreesDay = document.querySelector(".today-degrees-day");
-  let todayDegreesDayCelsius = Math.round(
+  let currentDegrees = document.querySelector(".current-degrees");
+  let currentDegreesCelsius = Math.round(
     ((madeUpDegreesFahrenheitDay - 32) * 5) / 9
   );
-  todayDegreesDay.innerHTML = `${todayDegreesDayCelsius}&deg;C`;
-
-  let todayDegreesNight = document.querySelector(".today-degrees-night");
-  let todayDegreesNightCelsius = Math.round(
-    ((madeUpDegreesFahrenheitNight - 32) * 5) / 9
-  );
-  todayDegreesNight.innerHTML = `${todayDegreesNightCelsius}&deg;C`;
+  currentDegrees.innerHTML = `${currentDegreesDayCelsius}&deg;C`;
 
   let degreesDay = document.querySelectorAll(".degrees-day");
   for (let i = 0; i < degreesDay.length; i++) {
@@ -74,18 +67,11 @@ function changeToCelsius() {
 
 function changeToFahrenheit() {
   const madeUpDegreesCelsiusDay = 5;
-  const madeUpDegreesCelsiusNight = 3;
-  let todayDegreesDay = document.querySelector(".today-degrees-day");
-  let todayDegreesDayFahrenheit = Math.round(
+  let currentDegrees = document.querySelector(".current-degrees");
+  let currentDegreesFahrenheit = Math.round(
     (madeUpDegreesCelsiusDay * 9) / 5 + 32
   );
-  todayDegreesDay.innerHTML = `${todayDegreesDayFahrenheit}&deg;F`;
-
-  let todayDegreesNight = document.querySelector(".today-degrees-night");
-  let todayDegreesNightFahrenheit = Math.round(
-    (madeUpDegreesCelsiusNight * 9) / 5 + 32
-  );
-  todayDegreesNight.innerHTML = `${todayDegreesNightFahrenheit}&deg;F`;
+  currentDegrees.innerHTML = `${currentDegreesFahrenheit}&deg;F`;
 
   let degreesDay = document.querySelectorAll(".degrees-day");
   for (let i = 0; i < degreesDay.length; i++) {
@@ -113,11 +99,23 @@ function preventDefault(event) {
 let searchBarForm = document.querySelector(".search-bar");
 searchBarForm.addEventListener("submit", preventDefault);
 
-function displayTempAndCity(response) {
+function updateDescription(response) {
+  let currentWeatherDescription = document.querySelector(
+    "#current-weather-description"
+  );
+
+  let APIresponse = response.data.weather[0].description;
+  let APIdescription =
+    APIresponse.charAt(0).toUpperCase() + APIresponse.slice(1);
+
+  currentWeatherDescription.innerHTML = `${APIdescription}`;
+}
+
+function displayWeather(response) {
   console.log(response.data);
-  let temperatureDay = Math.round(response.data.main.temp);
-  let todayDegreesDay = document.querySelector(".today-degrees-day");
-  todayDegreesDay.innerHTML = `${temperatureDay}&degC`;
+  let temperature = Math.round(response.data.main.temp);
+  let currentDegrees = document.querySelector(".current-degrees");
+  currentDegrees.innerHTML = `${temperature}&degC`;
 
   let city = document.querySelector(".city");
   city.innerHTML = `${response.data.name}`;
@@ -159,8 +157,9 @@ function getAxiosOpenWeather() {
   let apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
   let city = `${searchInput.value}`;
   let apiUrlOpenWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrlOpenWeather).then(displayTempAndCity);
+  axios.get(apiUrlOpenWeather).then(displayWeather);
   axios.get(apiUrlOpenWeather).then(changeBackground);
+  axios.get(apiUrlOpenWeather).then(updateDescription);
 }
 
 searchBarForm.addEventListener("submit", getAxiosOpenWeather);
@@ -170,8 +169,8 @@ function displayLocation(response) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${response.data.name}`;
   let temperature = Math.round(response.data.main.temp);
-  let todayDegreesDay = document.querySelector(".today-degrees-day");
-  todayDegreesDay.innerHTML = `${temperature}&degC`;
+  let currentDegrees = document.querySelector(".current-degrees");
+  currentDegrees.innerHTML = `${temperature}&degC`;
 }
 
 function getAxiosPosition(response) {
@@ -182,6 +181,7 @@ function getAxiosPosition(response) {
   let apiUrlWeatherHere = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrlWeatherHere).then(displayLocation);
   axios.get(apiUrlWeatherHere).then(changeBackground);
+  axios.get(apiUrlWeatherHere).then(updateDescription);
 }
 
 function currentLocation() {
