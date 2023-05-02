@@ -1,220 +1,200 @@
-const days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-const now = new Date();
+function formatDate() {
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  const now = new Date();
 
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-const currentTime = document.querySelector(".currentTime");
-currentTime.innerHTML = `${hours}:${minutes}`;
-
-const day = document.querySelector(".currentDay");
 const currentDay = days[now.getDay()];
-day.innerHTML = `${currentDay}`;
+  const currentTime = document.querySelector(".currentTime");
+  currentTime.innerHTML = `${hours}:${minutes}`;
 
-const currentDate = document.querySelector(".currentDate");
-currentDate.innerHTML = `${now.getDate()}. ${now.getMonth() + 1}`;
+  const day = document.querySelector(".currentDay");
+  const currentDay = days[now.getDay()];
+  day.innerHTML = `${currentDay}`;
 
-const day2 = document.querySelector("#day2");
-day2.innerHTML = days[(now.getDay() + 1) % 7];
+  const currentDate = document.querySelector(".currentDate");
+  currentDate.innerHTML = `${now.getDate()}. ${now.getMonth() + 1}`;
 
-const day3 = document.querySelector("#day3");
-day3.innerHTML = days[(now.getDay() + 2) % 7];
+  const day2 = document.querySelector("#day2");
+  day2.innerHTML = days[(now.getDay() + 1) % 7];
 
-const day4 = document.querySelector("#day4");
-day4.innerHTML = days[(now.getDay() + 3) % 7];
+  const day3 = document.querySelector("#day3");
+  day3.innerHTML = days[(now.getDay() + 2) % 7];
 
-const day5 = document.querySelector("#day5");
-day5.innerHTML = days[(now.getDay() + 4) % 7];
+  const day4 = document.querySelector("#day4");
+  day4.innerHTML = days[(now.getDay() + 3) % 7];
 
-const day6 = document.querySelector("#day6");
-day6.innerHTML = days[(now.getDay() + 5) % 7];
+  const day5 = document.querySelector("#day5");
+  day5.innerHTML = days[(now.getDay() + 4) % 7];
 
-function changeToCelsius() {
-  const madeUpDegreesFahrenheitDay = 41;
-  let currentDegrees = document.querySelector(".current-degrees");
-  let currentDegreesCelsius = Math.round(
-    ((madeUpDegreesFahrenheitDay - 32) * 5) / 9
-  );
-  currentDegrees.innerHTML = `${currentDegreesDayCelsius}&deg;C`;
+  const day6 = document.querySelector("#day6");
+  day6.innerHTML = days[(now.getDay() + 5) % 7];
+}
 
+function changeToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".current-degrees");
   let degreesDay = document.querySelectorAll(".degrees-day");
+  let degreesNight = document.querySelectorAll(".degrees-night");
+  let temperatureSign = document.querySelectorAll(".temperature-sign");
+
+  temperatureElement.innerHTML = `${celsiusTemperature}&deg;C`;
+
   for (let i = 0; i < degreesDay.length; i++) {
     degreesDay[i].innerHTML = "7";
   }
 
-  let degreesNight = document.querySelectorAll(".degrees-night");
   for (let i = 0; i < degreesNight.length; i++) {
-    degreesNight[i].innerHTML = "-1";
+    degreesNight[i].innerHTML = "1";
   }
 
-  let temperatureSign = document.querySelectorAll(".temperature-sign");
   temperatureSign.forEach((sign) => (sign.innerHTML = "C"));
+
 }
 
-function changeToFahrenheit() {
-  const madeUpDegreesCelsiusDay = 5;
-  let currentDegrees = document.querySelector(".current-degrees");
-  let currentDegreesFahrenheit = Math.round(
-    (madeUpDegreesCelsiusDay * 9) / 5 + 32
-  );
-  currentDegrees.innerHTML = `${currentDegreesFahrenheit}&deg;F`;
-
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  let currentDegreesFahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
+  let temperatureElement = document.querySelector(".current-degrees");
   let degreesDay = document.querySelectorAll(".degrees-day");
+  let degreesNight = document.querySelectorAll(".degrees-night");
+  let temperatureSign = document.querySelectorAll(".temperature-sign");
+
+  temperatureElement.innerHTML = `${currentDegreesFahrenheit}&deg;F`;
+
   for (let i = 0; i < degreesDay.length; i++) {
     degreesDay[i].innerHTML = "45";
   }
 
-  let degreesNight = document.querySelectorAll(".degrees-night");
   for (let i = 0; i < degreesNight.length; i++) {
-    degreesNight[i].innerHTML = "30";
+    degreesNight[i].innerHTML = "34";
   }
-  let temperatureSign = document.querySelectorAll(".temperature-sign");
+
   temperatureSign.forEach((sign) => (sign.innerHTML = "F"));
 }
 
-let celsiusButton = document.querySelector(".celsius-button");
-let fahrenheitButton = document.querySelector(".fahrenheit-button");
-
-celsiusButton.addEventListener("click", changeToCelsius);
-fahrenheitButton.addEventListener("click", changeToFahrenheit);
-
-function preventDefault(event) {
-  event.preventDefault();
-}
-
-let searchBarForm = document.querySelector(".search-bar");
-searchBarForm.addEventListener("submit", preventDefault);
-
-function updateDescription(response) {
-  let currentWeatherDescription = document.querySelector(
-    "#current-weather-description"
-  );
-
-  let APIresponse = response.data.weather[0].description;
-  let APIdescription =
-    APIresponse.charAt(0).toUpperCase() + APIresponse.slice(1);
-
-  currentWeatherDescription.innerHTML = `${APIdescription}`;
-}
-
-function displayWeather(response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  let currentDegrees = document.querySelector(".current-degrees");
-  currentDegrees.innerHTML = `${temperature}&degC`;
-
-  let city = document.querySelector(".city");
-  city.innerHTML = `${response.data.name}`;
-}
-
-function changeBackgroundAndPictures(response) {
+function changeDesign(response) {
   let backgroundContainer = document.querySelector("#background-container");
-  let weatherDescription = response.data.weather[0].main;
   let mainPicture = document.querySelector("#current-weather-picture");
-
-  let atmosphereDescriptors = [
-    "Mist",
-    "Smoke",
-    "Haze",
-    "Dust",
-    "Fog",
-    "Sand",
-    "Ash",
-    "Squall",
-    "Tornado",
+  let weatherDescription = response.data.condition.description;
+  let clouds = [
+    "few clouds",
+    "scattered clouds",
+    "broken clouds",
+    "overcast clouds",
   ];
 
-  if (atmosphereDescriptors.includes(weatherDescription)) {
-    backgroundContainer.style.backgroundColor = "#B4C1C9";
-    mainPicture.setAttribute(
-      "src",
-      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/866/original/cloudsadobegray.png?1682952198`
-    );
-  } else if (weatherDescription == "Snow") {
-    backgroundContainer.style.backgroundColor = "#fffafa";
-    mainPicture.setAttribute(
-      "src",
-      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/893/original/snow2.png?1682960045`
-    );
-  } else if (weatherDescription == "Clear") {
+  if (weatherDescription == "clear sky") {
     backgroundContainer.style.backgroundColor = "#fff8bc";
     mainPicture.setAttribute(
       "src",
       `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/836/original/sun.png?1682944300`
     );
-  } else if (weatherDescription == "Clouds") {
+  } else if (clouds.includes(weatherDescription)) {
     backgroundContainer.style.backgroundColor = "#ededed";
     mainPicture.setAttribute(
       "src",
       `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/848/original/cloudsadobe2.png?1682946292`
     );
-  } else if (weatherDescription == "Rain") {
+  } else if (
+    weatherDescription == "rain" ||
+    weatherDescription == "shower rain"
+  ) {
     backgroundContainer.style.backgroundColor = "#e0f2fc";
     mainPicture.setAttribute(
       "src",
       `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/764/original/rainy3.png?1682935050`
     );
-  } else if (weatherDescription == "Thunderstorm") {
+  } else if (weatherDescription == "thunderstorm") {
     backgroundContainer.style.backgroundColor = "#d1fdff";
     mainPicture.setAttribute(
       "src",
       `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/849/original/thunder.png?1682946763`
     );
+  } else if (weatherDescription == "snow") {
+    backgroundContainer.style.backgroundColor = "#fffafa";
+    mainPicture.setAttribute(
+      "src",
+      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/893/original/snow2.png?1682960045`
+    );
+  } else if (weatherDescription == "mist") {
+    backgroundContainer.style.backgroundColor = "#B4C1C9";
+    mainPicture.setAttribute(
+      "src",
+      `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/079/866/original/cloudsadobegray.png?1682952198`
+    );
   }
 }
 
-let searchInput = document.querySelector("#search-input");
-
-function getAxiosOpenWeather() {
-  let apiKey = "0efb4fc16a9ed98dc0b3aafd8491d6ad";
-  let city = `${searchInput.value}`;
-  let apiUrlOpenWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrlOpenWeather).then(displayWeather);
-  axios.get(apiUrlOpenWeather).then(changeBackgroundAndPictures);
-  axios.get(apiUrlOpenWeather).then(updateDescription);
-  axios.get(apiUrlOpenWeather).then(changePictures);
-}
-
-searchBarForm.addEventListener("submit", getAxiosOpenWeather);
-
-function displayLocation(response) {
-  console.log(response.data);
+function displayWeather(response) {
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${response.data.name}`;
-  let temperature = Math.round(response.data.main.temp);
+  let city = document.querySelector(".city");
   let currentDegrees = document.querySelector(".current-degrees");
-  currentDegrees.innerHTML = `${temperature}&degC`;
+  let currentWeatherDescription = document.querySelector(
+    "#current-weather-description"
+  );
+  let APIresponse = response.data.condition.description;
+  let APIdescription =
+    APIresponse.charAt(0).toUpperCase() + APIresponse.slice(1);
+
+  celsiusTemperature = Math.round(response.data.temperature.current);
+
+  h1.innerHTML = `${response.data.city}`;
+  city.innerHTML = `${response.data.city}`;
+  currentDegrees.innerHTML = `${celsiusTemperature}&degC`;
+  currentWeatherDescription.innerHTML = `${APIdescription}`;
 }
 
-function getAxiosPosition(response) {
-  console.log(response.data);
-  let lat = response.coords.latitude;
+function search(city) {
+  let key = "bb17928f0a6402b36bto3aa70a7e308c";
+  let apiUrlCity = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}`;
+  axios.get(apiUrlCity).then(displayWeather);
+  axios.get(apiUrlCity).then(changeDesign);
+}
+
+function getAxiosCurrentLocation(response) {
+  let key = "bb17928f0a6402b36bto3aa70a7e308c";
   let lon = response.coords.longitude;
-  let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
-  let apiUrlWeatherHere = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrlWeatherHere).then(displayLocation);
-  axios.get(apiUrlWeatherHere).then(changeBackgroundAndPictures);
-  axios.get(apiUrlWeatherHere).then(updateDescription);
-  axios.get(apiUrlWeatherHere).then(changePictures);
+  let lat = response.coords.latitude;
+  let apiUrlCoordinates = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${key}`;
+  let axiosReqCoordinates = axios.get(apiUrlCoordinates);
+
+  axiosReqCoordinates.then(displayWeather);
+  axiosReqCoordinates.then(changeDesign);
 }
 
 function currentLocation() {
-  navigator.geolocation.getCurrentPosition(getAxiosPosition);
+  navigator.geolocation.getCurrentPosition(getAxiosCurrentLocation);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let input = document.querySelector("#search-input");
+  search(input.value);
+}
+
+let celsiusTemperature = null;
+
+let celsiusButton = document.querySelector(".celsius-button");
+let fahrenheitButton = document.querySelector(".fahrenheit-button");
+let form = document.querySelector(".search-bar");
 let currentButton = document.querySelector(".current-button");
+
+celsiusButton.addEventListener("click", changeToCelsius);
+
+fahrenheitButton.addEventListener("click", changeToFahrenheit);
+
+form.addEventListener("submit", handleSubmit);
+
 currentButton.addEventListener("click", currentLocation);
+
+search("Oslo");
+
+formatDate();
