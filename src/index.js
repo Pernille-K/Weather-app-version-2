@@ -11,7 +11,6 @@ function formatDate() {
     minutes = `0${minutes}`;
   }
 
-const currentDay = days[now.getDay()];
   const currentTime = document.querySelector(".currentTime");
   currentTime.innerHTML = `${hours}:${minutes}`;
 
